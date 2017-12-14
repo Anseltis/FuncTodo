@@ -41,4 +41,10 @@
     <ProjectReference Include="..\Domain.Interface\Domain.Interface.fsproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
