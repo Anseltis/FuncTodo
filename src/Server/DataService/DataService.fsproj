@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>ESystems.FuncTodo.Server.DataService</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="TodoService.fs" />
+    <Compile Include="CategoryService.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.DataAccess\Infrastructure.DataAccess.csproj" />
+    <ProjectReference Include="..\DataAccess.Model\DataAccess.Model.csproj" />
+    <ProjectReference Include="..\DataAccess.Repository\DataAccess.Repository.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Domain.Interface\Domain.Interface.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.2.3" />
+  </ItemGroup>
+
+</Project>
