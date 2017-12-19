@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ESystems.FuncTodo.Server.Host
 {
@@ -29,16 +30,22 @@ namespace ESystems.FuncTodo.Server.Host
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services
-                .AddMvc()
-                .AddJsonOptions(options => options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore);
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            });
 
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Info { Title = "Todo API", Version = "v1" });
+            });
+                
             var builder = new ContainerBuilder();
 
             builder.UseTodo();
             builder.Populate(services);
 
-            IContainer appContainer = builder.Build();
+            var appContainer = builder.Build();
             return new AutofacServiceProvider(appContainer);
         }
 
@@ -50,7 +57,12 @@ namespace ESystems.FuncTodo.Server.Host
 
             app
                 .UseStaticFiles()
-                .UseMvcWithDefaultRoute();
+                .UseMvcWithDefaultRoute()
+                .UseSwagger()
+                .UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API V1");
+                });
         }
     }
 }
