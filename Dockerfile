@@ -11,7 +11,7 @@ RUN dotnet publish -c Release -o out
 
 
 # build runtime image
-FROM microsoft/dotnet
+FROM microsoft/aspnetcore
 WORKDIR /app
 COPY --from=build-env /app/src/Server/Host/out .
 
