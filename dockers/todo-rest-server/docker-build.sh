@@ -1,0 +1,1 @@
+docker build -t todo-rest-server -f ./dockers/todo-rest-server/Dockerfile .
