@@ -1,0 +1,1 @@
+docker build -t todo-static-server -f ./dockers/todo-static-server/Dockerfile .

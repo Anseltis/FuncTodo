@@ -11,7 +11,6 @@ const rootReducer: Reducer<StoreType> = combineReducers<StoreType>({
 
 export function configureStore(): Store<StoreType> {
    const store: Store<StoreType> = createStore<StoreType>(
-       rootReducer,
-       (<any>window).__REDUX_DEVTOOLS_EXTENSION__ && (<any>window).__REDUX_DEVTOOLS_EXTENSION__());
+       rootReducer);
    return store;
  }
