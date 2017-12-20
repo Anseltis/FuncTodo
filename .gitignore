@@ -22,6 +22,12 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+.DS_Store
+*.log
+dist
+node_modules
+.vscode
+
 # Visual Studio 2015 cache/options directory
 .vs/
 
