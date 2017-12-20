@@ -1,8 +1,14 @@
 version: "3"
 services:
-  server:
+  rest-server:
     build: 
         dockerfile: dockers/todo-rest-server/Dockerfile
         context: ../
     ports:
      - "5000:5000"
+  static-server:
+    build: 
+        dockerfile: dockers/todo-static-server/Dockerfile
+        context: ../
+    ports:
+     - "8080:80"

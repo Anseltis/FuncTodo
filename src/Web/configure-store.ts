@@ -3,7 +3,6 @@ import { Reducer, Store, createStore } from 'redux';
 import { combineReducers } from 'redux';
 
 import { StoreType } from './store/store-type';
-import { Effect } from 'redux-saga/effects';
 
 const rootReducer: Reducer<StoreType> = combineReducers<StoreType>({
     form: formReducer
