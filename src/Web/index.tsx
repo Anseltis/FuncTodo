@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
 import { Provider } from 'react-redux';
 import { Store } from 'redux';
@@ -10,8 +10,12 @@ import { TodoLayout } from './components/todo-layout';
 
 const store: Store<StoreType> = configureStore();
 
-ReactDOM.render(
-    <Provider store={ store }>
-        <TodoLayout/>
-    </Provider>,
-    document.getElementById('root'));
+const container = document.getElementById('root');
+if (container) {
+    const root = createRoot(container);
+    root.render(
+        <Provider store={ store }>
+            <TodoLayout />
+        </Provider>
+    );
+}
